@@ -1,5 +1,17 @@
 # Telegram Channel Scraper 📱
 
+> **⚠️ DISCONTINUED**
+>
+> This project is no longer maintained. After a lot of support and interest from the community, A far more capable successor has been released:
+>
+> **➜ [Harrier — Telegram Scraping & Intelligence Platform](https://github.com/skuggrev/harrier)**
+>
+> Harrier has everything this tool had and much more - web UI, real-time progress, user lookup, webhook alerts, continuous scraping, and a proper export system. I recommend switching over.
+>
+> A huge thank you to everyone who used, starred, and supported this project.
+
+---
+
 A powerful Python script that allows you to scrape messages and media from Telegram channels using the Telethon library. Features include real-time continuous scraping, media downloading, and data export capabilities.
 
 ```
@@ -14,12 +26,14 @@ ___________________  _________
 ## What's New in v3.1 🎉
 
 **Enhanced Message Data:**
+
 - **Message statistics** - Captures views, forwards, and post_author for each message
 - **Reactions support** - Records all emoji reactions with counts (e.g., "😀 12 👍 3")
 - **Automatic database migration** - Seamlessly adds new columns to existing databases
 - **Richer exports** - All new data included in CSV/JSON exports
 
 **Improved Channel Management:**
+
 - **Channel names displayed** - Shows channel names alongside IDs everywhere
 - **Smart filtering** - List option now only shows Channels and Groups (no private chats)
 - **channels_list.csv export** - Automatically saves channel list with names, IDs, usernames, and types
@@ -27,6 +41,7 @@ ___________________  _________
 - **Better export naming** - Files now named as `ID_username.csv` and `ID_username.json`
 
 **Bug Fixes:**
+
 - **Fixed channel ID parsing** - Resolved "invalid literal for int()" error in fix missing media
 - **Better entity resolution** - Handles both numeric IDs and channel usernames
 - **Improved error messages** - Shows channel names with IDs for clearer debugging
@@ -73,23 +88,26 @@ pip install -r requirements.txt
 6. You'll receive:
    - `api_id`: A number
    - `api_hash`: A string of letters and numbers
-   
+
 Keep these credentials safe, you'll need them to run the script!
 
 ## Setup and Running 🔧
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/unnohwn/telegram-scraper.git
 cd telegram-scraper
 ```
 
 2. Install requirements:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Run the script:
+
 ```bash
 python telegram-scraper.py
 ```
@@ -125,6 +143,7 @@ The script provides a clean interactive menu:
 Instead of typing long channel IDs, use numbers:
 
 **Adding Channels:**
+
 ```
 [1] Tech News (ID: -1002116176890, Type: Channel, Username: @technews)
 [2] Python Dev (ID: -1001597139842, Type: Group, Username: @pythondev)
@@ -135,12 +154,14 @@ Or: all (adds all listed channels)
 ```
 
 **Viewing Your Channels:**
+
 ```
 [1] Tech News (ID: -1002116176890), Last Message ID: 5234, Messages: 12450
 [2] Python Dev (ID: -1001597139842), Last Message ID: 8192, Messages: 45782
 ```
 
 **Scraping Channels:**
+
 - Single: `1`
 - Multiple: `1,3,5`
 - All: `all`
@@ -151,6 +172,7 @@ Or: all (adds all listed channels)
 ### Database Structure
 
 Data is stored in SQLite databases, one per channel:
+
 - Location: `./channelname/channelname.db`
 - Optimized with indexes for fast queries
 - WAL mode for better performance
@@ -160,6 +182,7 @@ Data is stored in SQLite databases, one per channel:
 ### Media Storage 📁
 
 Media files are stored with unique naming:
+
 - Location: `./channelname/media/`
 - Format: `{message_id}-{unique_id}-{original_name}.ext`
 - **No more file overwrites** - Each file gets a unique name
@@ -167,6 +190,7 @@ Media files are stored with unique naming:
 ### Exported Data 📊
 
 Export formats:
+
 1. **CSV**: `./channelname/channelid_username.csv`
 2. **JSON**: `./channelname/channelid_username.json`
 3. **Channel List**: `./channels_list.csv` (automatically created when using [L] option)
@@ -201,6 +225,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Disclaimer ⚖️
 
 This tool is for educational purposes only. Make sure to:
+
 - Respect Telegram's Terms of Service
 - Obtain necessary permissions before scraping
 - Use responsibly and ethically
